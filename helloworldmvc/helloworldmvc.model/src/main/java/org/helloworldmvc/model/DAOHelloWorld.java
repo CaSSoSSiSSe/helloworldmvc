@@ -11,11 +11,17 @@ public class DAOHelloWorld {
 	private static DAOHelloWorld instance = null;
 	private final String helloWorldMessage = null;
 
-	private DAOHelloWorld(){
+	private DAOHelloWorld() throws IOException{
 
+		this.readFile();
 	}
 
-	public static DAOHelloWorld getInstance() {
+	public static DAOHelloWorld getInstance() throws IOException {
+
+		if(instance == null){
+			setInstance(new DAOHelloWorld());
+		}
+
 		return instance;
 	}
 
@@ -27,11 +33,11 @@ public class DAOHelloWorld {
 		return this.helloWorldMessage;
 	}
 
-	public void setHelloWorldMessage(final String helloWorldMessage){
+	public void setHelloWorldMessage(final String helloWorldMessage) {
 		return;
 	}
 
-	private void readFile(final String FileName) throws IOException{
+	private void readFile() throws IOException {
 		BufferedReader lecteurAvecBuffer = null;
 		String ligne;
 
