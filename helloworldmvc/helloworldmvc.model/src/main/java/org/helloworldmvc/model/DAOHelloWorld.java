@@ -21,7 +21,6 @@ public class DAOHelloWorld {
 		if(instance == null){
 			setInstance(new DAOHelloWorld());
 		}
-
 		return instance;
 	}
 
